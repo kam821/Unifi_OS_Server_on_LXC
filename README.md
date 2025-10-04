@@ -27,6 +27,6 @@ In the case of Proxmox, add them to /etc/pve/lxc/CT_ID.conf:
 lxc.cgroup2.devices.allow: c 10:200 rwm
 lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 ```
-This way, you have a working UniFi OS Server on the LXC.
+This way, you can successfully run UniFi OS Server installer on the LXC.
 
 This instruction only work for privileged LXC container, it won't work on unprivileged container.
