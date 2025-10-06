@@ -22,7 +22,15 @@ then reboot or reconnect to the shell.
 
 Additionally, you need to grant the LXC container the appropriate permissions so that the Podman can create the tun interface.
 
-In the case of Proxmox, add them to /etc/pve/lxc/CT_ID.conf:
+In the case of Proxmox, go to the Container Resources > add > Device Passthrough:
+```
+Advanced checked
+Device path: /dev/net/tun
+Access mode in CT: 0666
+```
+or
+
+edit /etc/pve/lxc/CT_ID.conf and add:
 ```
 lxc.cgroup2.devices.allow: c 10:200 rwm
 lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
